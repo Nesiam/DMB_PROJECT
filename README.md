@@ -544,9 +544,10 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 ```markdown
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |----------|---------------------|------------------|--------------------------|-----------------------------------------------|
-| Armenia  | -8.99               | r(19.28)         | -1.17                    | r(77.03)                                      |
-| Mexico   | -3.59               | -11.42           | r(4.78)                  | -111.19                                       |
-| Belarus  | r(0.01)             | r(13.28)         | -3.10                    | r(179.15)                                     |
-| Russia   | r(12.91)            | r(25.48)         | -2.10                    | r(167.32)                                     |
-| Albania  | -3.39               | r(18.38)         | r(1.80)                  | r(40.22)                                      |
+| Armenia  | -8.99               | <font color='red'>19.28</font> | -1.17 | <font color='red'>77.03</font> |
+| Mexico   | -3.59               | -11.42           | <font color='red'>4.78</font>  | -111.19 |
+| Belarus  | <font color='red'>0.01</font> | <font color='red'>13.28</font> | -3.10 | <font color='red'>179.15</font> |
+| Russia   | <font color='red'>12.91</font> | <font color='red'>25.48</font> | -2.10 | <font color='red'>167.32</font> |
+| Albania  | -3.39               | <font color='red'>18.38</font> | <font color='red'>1.80</font> | <font color='red'>40.22</font> |
+
 ```
