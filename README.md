@@ -121,8 +121,10 @@ The number of samples is now 13515 against the previous 176224.
 Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
 ```markdown
-weekly_icu_admissions	weekly_icu_admissions_per_million	excess_mortality_cumulative_absolute	excess_mortality_cumulative	excess_mortality	excess_mortality_cumulative_per_million	total_boosters	total_boosters_per_hundred	weekly_hosp_admissions	weekly_hosp_admissions_per_million	...	new_cases_smoothed_per_million	new_cases_per_million	total_cases_per_million	new_cases_smoothed	new_cases	total_cases	population	iso_code	location	date
-0	       	       	       13029	       	       	       13029	           	       	       13010	       	       	       13010	       	       	       13010	       	       	       13010	       	       	       12765	      	       	       12765	       	       	       12581	       	       	       12581		       ...	     	       	       412	     	       	       382	     	       	       378	     	       	       353	 	       	       323	     	       	       319	 	       	       105		       	       0		       0		       0
+| weekly_icu_admissions | weekly_icu_admissions_per_million | excess_mortality_cumulative_absolute | excess_mortality_cumulative | excess_mortality | excess_mortality_cumulative_per_million | total_boosters | total_boosters_per_hundred | weekly_hosp_admissions | weekly_hosp_admissions_per_million | ... | new_cases_smoothed_per_million | new_cases_per_million | total_cases_per_million | new_cases_smoothed | new_cases | total_cases | population | iso_code | location | date |
+|------------------------|-----------------------------------|------------------------------------|---------------------------|------------------|-----------------------------------------|----------------|---------------------------|------------------------|--------------------------------------|-----|--------------------------------|-----------------------|-----------------------|-------------------|-------------|-----------------------|-----------|----------|----------|------|
+| 13029                  | 13029                             | 13010                              | 13010                     | 13010            | 13010                                   | 12765          | 12765                     | 12581                  | 12581                                | ... | 412                            | 382                   | 378                   | 353               | 323         | 319         | 105       | 0        | 0        | 0    |
+
 1 rows × 67 columns
 ```
 
