@@ -122,7 +122,7 @@ Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
 ```markdown
 weekly_icu_admissions	weekly_icu_admissions_per_million	excess_mortality_cumulative_absolute	excess_mortality_cumulative	excess_mortality	excess_mortality_cumulative_per_million	total_boosters	total_boosters_per_hundred	weekly_hosp_admissions	weekly_hosp_admissions_per_million	...	new_cases_smoothed_per_million	new_cases_per_million	total_cases_per_million	new_cases_smoothed	new_cases	total_cases	population	iso_code	location	date
-0	13029	13029	13010	13010	13010	13010	12765	12765	12581	12581	...	412	382	378	353	323	319	105	0	0	0
+0	       13029	       13029	           13010	       13010	       13010	       13010	       12765	      12765	       12581	       12581	...	     412	     382	     378	     353	 323	     319	 105	0	0	0
 1 rows × 67 columns
 ```
 
@@ -413,7 +413,7 @@ Pour se donner une idée de ce que ces taux de mortalité représente nous avons
 
 ![Example Image](img/total_deaths.png)
 
-## 💻 7. Etude de l'évolution du nombre de patient (Intermédiaire)
+## 💻 7. Etude de l'évolution du nombre de patients (Intermédiaire)
 
 ```markdown
 During 2021-01-01, the top 20 countries with the highest number of icu_patients were:
@@ -488,6 +488,52 @@ Malaysia      : New entry at position 13
 
 ![Example Image](img/ICU.png)
 
-## 💻8. Etude la Corrélation de l'excès de mortalité (Difficlité)
+## 💻8. Etude de la Corrélation de l'excès de mortalité (Difficile)
 
 ![Example Image](img/correlation.png)
+
+## 💻9. Etude de la Corrélation entre différente features (Difficile)
+
+```markdown
+As far as the correlation between new tests and excess mortality is concerned:
+
+The ten countries with the highest correlation are:
+Spain, with correlation equal to 0.976.
+South Africa, with correlation equal to 0.968.
+Peru, with correlation equal to 0.962.
+Portugal, with correlation equal to 0.960.
+Mexico, with correlation equal to 0.921.
+Colombia, with correlation equal to 0.916.
+United States, with correlation equal to 0.794.
+Lithuania, with correlation equal to 0.762.
+South Korea, with correlation equal to 0.723.
+Chile, with correlation equal to 0.647.
+
+The ten countries with the lowest correlation are:
+Slovakia, with correlation equal to -0.883.
+Denmark, with correlation equal to -0.828.
+Romania, with correlation equal to -0.762.
+New Zealand, with correlation equal to -0.729.
+Switzerland, with correlation equal to -0.715.
+Italy, with correlation equal to -0.698.
+Sweden, with correlation equal to -0.643.
+Luxembourg, with correlation equal to -0.543.
+Guatemala, with correlation equal to -0.483.
+Austria, with correlation equal to -0.396.
+```
+
+## 💻10. Etude de la relation entre Covid et conditions générales de santé (Difficile)
+
+```markdown
+Based on data up to 2021-01-01, the mean percentage of female smokers is 10.49%, while the corresponding number for male smokers is 32.82%.
+In addition, the mean percentage of people suffering from diabetes (aged 20-79) is 8.27%, while the mean number of deaths per 100.000 people due to cardiovascular conditions is 263.33.
+```
+
+```markdown
+location	excess_mortality_cumulative_per_million	female_smokers	male_smokers	diabetes_prevalence	cardiovasc_death_rate
+0	Armenia	3613.725554	1.5	52.1	7.11	341.010
+1	Mexico	3437.694368	6.9	21.4	13.06	152.783
+2	Belarus	3287.984465	10.5	46.1	5.18	443.129
+3	Russia	3151.540865	23.4	58.3	6.18	431.297
+4	Albania	2854.503445	7.1	51.2	10.08	304.195
+```
