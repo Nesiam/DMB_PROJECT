@@ -20,7 +20,6 @@ Durant cette analyse nous allons étudier le nombre de cas recensé, de nouveau 
 
 Commençons par visualiser le dataset :
 
-```markdown
 +--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
 |iso_code|continent|   location|      date|total_cases|new_cases|new_cases_smoothed|total_deaths|new_deaths|new_deaths_smoothed|total_cases_per_million|new_cases_per_million|new_cases_smoothed_per_million|total_deaths_per_million|new_deaths_per_million|new_deaths_smoothed_per_million|reproduction_rate|icu_patients|icu_patients_per_million|hosp_patients|hosp_patients_per_million|weekly_icu_admissions|weekly_icu_admissions_per_million|weekly_hosp_admissions|weekly_hosp_admissions_per_million|total_tests|new_tests|total_tests_per_thousand|new_tests_per_thousand|new_tests_smoothed|new_tests_smoothed_per_thousand|positive_rate|tests_per_case|tests_units|total_vaccinations|people_vaccinated|people_fully_vaccinated|total_boosters|new_vaccinations|new_vaccinations_smoothed|total_vaccinations_per_hundred|people_vaccinated_per_hundred|people_fully_vaccinated_per_hundred|total_boosters_per_hundred|new_vaccinations_smoothed_per_million|new_people_vaccinated_smoothed|new_people_vaccinated_smoothed_per_hundred|stringency_index| population|population_density|median_age|aged_65_older|aged_70_older|gdp_per_capita|extreme_poverty|cardiovasc_death_rate|diabetes_prevalence|female_smokers|male_smokers|handwashing_facilities|hospital_beds_per_thousand|life_expectancy|human_development_index|excess_mortality_cumulative_absolute|excess_mortality_cumulative|excess_mortality|excess_mortality_cumulative_per_million|
 +--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
@@ -31,7 +30,6 @@ Commençons par visualiser le dataset :
 |     AFG|     Asia|Afghanistan|2020-02-28|        5.0|      0.0|              NULL|        NULL|      NULL|               NULL|                  0.126|                  0.0|                          NULL|                    NULL|                  NULL|                           NULL|             NULL|        NULL|                    NULL|         NULL|                     NULL|                 NULL|                             NULL|                  NULL|                              NULL|       NULL|     NULL|                    NULL|                  NULL|              NULL|                           NULL|         NULL|          NULL|       NULL|              NULL|             NULL|                   NULL|          NULL|            NULL|                     NULL|                          NULL|                         NULL|                               NULL|                      NULL|                                 NULL|                          NULL|                                      NULL|            8.33|3.9835428E7|            54.422|      18.6|        2.581|        1.337|      1803.987|           NULL|              597.029|               9.59|          NULL|        NULL|                37.746|                       0.5|          64.83|                  0.511|                                NULL|                       NULL|            NULL|                                   NULL|
 +--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
 only showing top 5 rows
-```
 
 Ce dataset est très complet et contient des informations allant des statistiques du Covid (cas,test,admissions hebdommadaire..) aux informations démographiques et médicales du pays. Voici une liste exhaustive :
 
@@ -120,13 +118,13 @@ The number of samples is now 13515 against the previous 176224.
 
 Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
-```markdown
+
 | weekly_icu_admissions | weekly_icu_admissions_per_million | excess_mortality_cumulative_absolute | excess_mortality_cumulative | excess_mortality | excess_mortality_cumulative_per_million | total_boosters | total_boosters_per_hundred | weekly_hosp_admissions | weekly_hosp_admissions_per_million | ... | new_cases_smoothed_per_million | new_cases_per_million | total_cases_per_million | new_cases_smoothed | new_cases | total_cases | population | iso_code | location | date |
 |------------------------|-----------------------------------|------------------------------------|---------------------------|------------------|-----------------------------------------|----------------|---------------------------|------------------------|--------------------------------------|-----|--------------------------------|-----------------------|-----------------------|-------------------|-------------|-----------------------|-----------|----------|----------|------|
 | 13029                  | 13029                             | 13010                              | 13010                     | 13010            | 13010                                   | 12765          | 12765                     | 12581                  | 12581                                | ... | 412                            | 382                   | 378                   | 353               | 323         | 319         | 105       | 0        | 0        | 0    |
 
 1 rows × 67 columns
-```
+
 
 Pour adresser cette situation nous avons remplacé les valeurs de noms de continent par "Unknown", les types de test par "no info" et les valeurs numériques par 0.
 
@@ -490,9 +488,28 @@ Malaysia      : New entry at position 13
 
 ![Example Image](img/ICU.png)
 
-## 💻8. Etude de la Corrélation de l'excès de mortalité (Difficile)
+## 💻8. Etude de la Corrélation géographique de l'excès de mortalité (Difficile)
 
 ![Example Image](img/correlation.png)
+
+```markdown
+Germany and Belgium show a correlation of 95.43.
+Germany and Lithuania show a correlation of 95.35.
+Germany and Sweden show a correlation of 98.87.
+Germany and Switzerland show a correlation of 98.29.
+Germany and Netherlands show a correlation of 95.19.
+Belgium and Sweden show a correlation of 95.43.
+Belgium and Switzerland show a correlation of 95.14.
+Lithuania and Sweden show a correlation of 95.32.
+Lithuania and Netherlands show a correlation of 95.47.
+Denmark and Austria show a correlation of 97.06.
+Sweden and Switzerland show a correlation of 98.40.
+Sweden and Poland show a correlation of 96.59.
+Spain and Portugal show a correlation of 96.87.
+Switzerland and Slovenia show a correlation of 96.30.
+Switzerland and Poland show a correlation of 96.98.
+Slovenia and Poland show a correlation of 95.57.
+```
 
 ## 💻9. Etude de la Corrélation entre différente features (Difficile)
 
@@ -531,7 +548,6 @@ Based on data up to 2021-01-01, the mean percentage of female smokers is 10.49%,
 In addition, the mean percentage of people suffering from diabetes (aged 20-79) is 8.27%, while the mean number of deaths per 100.000 people due to cardiovascular conditions is 263.33.
 ```
 
-```markdown
 | location | excess_mortality_cumulative_per_million | female_smokers | male_smokers | diabetes_prevalence | cardiovasc_death_rate |
 |----------|----------------------------------------|----------------|--------------|---------------------|------------------------|
 | Armenia  | 3613.725554                            | 1.5            | 52.1         | 7.11                | 341.010                |
@@ -539,19 +555,18 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Belarus  | 3287.984465                            | 10.5           | 46.1         | 5.18                | 443.129                |
 | Russia   | 3151.540865                            | 23.4           | 58.3         | 6.18                | 431.297                |
 | Albania  | 2854.503445                            | 7.1            | 51.2         | 10.08               | 304.195                |
-```
 
-```markdown
+
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |----------|---------------------|------------------|--------------------------|---------------------------------------------|
-| Armenia  | -8.99               | **19.28**        | -1.17                    | **77.03**                                   |
-| Mexico   | -3.59               | -11.42           | **4.78**                 | -111.19                                     |
-| Belarus  | **0.01**            | **13.28**        | -3.10                    | **179.15**                                  |
-| Russia   | **12.91**           | **25.48**        | -2.10                    | **167.32**                                  |
-| Albania  | -3.39               | **18.38**        | **1.80**                 | **40.22**                                   |
-```
+| Armenia  | -8.99               | ***19.28***        | -1.17                    | ***77.03***                                   |
+| Mexico   | -3.59               | -11.42           | ***4.78***                 | -111.19                                     |
+| Belarus  | ***0.01***            | ***13.28***        | -3.10                    | ***179.15***                                  |
+| Russia   | ***12.91***           | ***25.48***        | -2.10                    | ***167.32***                                  |
+| Albania  | -3.39               | ***18.38***        | ***1.80***                 | ***40.22***                                   |
 
-```markdown
+
+
 | location   | Excess Mortality (per million) | Female Smokers (%) | Male Smokers (%) | Diabetes Prevalence (%) | Cardiovascular Death Rate |
 |------------|--------------------------------|--------------------|------------------|-------------------------|---------------------------|
 | Seychelles | -1678.29                   | 7.1                | 35.7             | 10.55                   | 242.648                   |
@@ -559,13 +574,13 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Uruguay    | -682.38                    | 14.0               | 19.9             | 6.93                    | 160.708                   |
 | Mongolia   | -605.84                    | 5.5                | 46.5             | 4.82                    | 460.043                   |
 | Malaysia   | -465.23                   | 1.0                | 42.4             | 16.74                   | 260.942                   |
-```
+
 
 
 | location   | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |------------|---------------------|-------------------|-------------------------|--------------------------------------------------|
-| Seychelles | -3.39           | **2.88**               | **2.27**                         | -21.33                                                  |
-| Barbados    | -8.59               | -18.32            | **5.29**                         | -93.93                                                  |
-| Uruguay       | **3.51**                  | -12.92            | -1.35                        | -103.27                                                |
-| Mongolia    | -4.99            | **13.68**               | -3.46                       | **196.07**                                                  |
-| Malaysia    | -9.49            | **9.58**                | **8.46**                         | -3.03                                                    |
+| Seychelles | -3.39           | ***2.88***               | ***2.27***                         | -21.33                                                  |
+| Barbados    | -8.59               | -18.32            | ***5.29***                         | -93.93                                                  |
+| Uruguay       | ***3.51***                  | -12.92            | -1.35                        | -103.27                                                |
+| Mongolia    | -4.99            | ***13.68***               | -3.46                       | ***196.07***                                                  |
+| Malaysia    | -9.49            | ***9.58***                | ***8.46***                         | -3.03                                                    |
