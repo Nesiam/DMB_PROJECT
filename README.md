@@ -544,10 +544,9 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 ```markdown
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |----------|---------------------|------------------|--------------------------|-----------------------------------------------|
-| Armenia  | -8.99               | <font color='red'>19.28</font> | -1.17 | <font color='red'>77.03</font> |
-| Mexico   | -3.59               | -11.42           | <font color='red'>4.78</font>  | -111.19 |
-| Belarus  | <font color='red'>0.01</font> | <font color='red'>13.28</font> | -3.10 | <font color='red'>179.15</font> |
-| Russia   | <font color='red'>12.91</font> | <font color='red'>25.48</font> | -2.10 | <font color='red'>167.32</font> |
-| Albania  | -3.39               | <font color='red'>18.38</font> | <font color='red'>1.80</font> | <font color='red'>40.22</font> |
-
+| Armenia  | -8.99               | <span style="color:red">19.28</span> | -1.17 | <span style="color:red">77.03</span> |
+| Mexico   | -3.59               | -11.42           | <span style="color:red">4.78</span>  | -111.19 |
+| Belarus  | <span style="color:red">0.01</span> | <span style="color:red">13.28</span> | -3.10 | <span style="color:red">179.15</span> |
+| Russia   | <span style="color:red">12.91</span> | <span style="color:red">25.48</span> | -2.10 | <span style="color:red">167.32</span> |
+| Albania  | -3.39               | <span style="color:red">18.38</span> | <span style="color:red">1.80</span> | <span style="color:red">40.22</span> |
 ```
