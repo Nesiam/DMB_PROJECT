@@ -543,12 +543,12 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 
 ```markdown
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
-|----------|---------------------|------------------|--------------------------|-----------------------------------------------|
-| Armenia  | -8.99               | **19.28**         | -1.17                    | **77.03**                                      |
-| Mexico   | -3.59               | -11.42           | **4.78**                 | -111.19                                        |
-| Belarus  | **0.01**            | **13.28**        | -3.10                    | **179.15**                                     |
-| Russia   | **12.91**           | **25.48**        | -2.10                    | **167.32**                                     |
-| Albania  | -3.39               | **18.38**         | **1.80**                 | **40.22**                                      |
+|----------|---------------------|------------------|--------------------------|---------------------------------------------|
+| Armenia  | -8.99               | **19.28**        | -1.17                    | **77.03**                                   |
+| Mexico   | -3.59               | -11.42           | **4.78**                 | -111.19                                     |
+| Belarus  | **0.01**            | **13.28**        | -3.10                    | **179.15**                                  |
+| Russia   | **12.91**           | **25.48**        | -2.10                    | **167.32**                                  |
+| Albania  | -3.39               | **18.38**        | **1.80**                 | **40.22**                                   |
 ```
 
 ```markdown
@@ -561,7 +561,7 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Malaysia   | -465.23                   | 1.0                | 42.4             | 16.74                   | 260.942                   |
 ```
 
-```markdown
+
 | location   | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |------------|---------------------|-------------------|-------------------------|--------------------------------------------------|
 | Seychelles | -3.39           | **2.88**               | **2.27**                         | -21.33                                                  |
@@ -569,4 +569,3 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Uruguay       | **3.51**                  | -12.92            | -1.35                        | -103.27                                                |
 | Mongolia    | -4.99            | **13.68**               | -3.46                       | **196.07**                                                  |
 | Malaysia    | -9.49            | **9.58**                | **8.46**                         | -3.03                                                    |
-```
