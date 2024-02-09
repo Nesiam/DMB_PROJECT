@@ -544,9 +544,29 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 ```markdown
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |----------|---------------------|------------------|--------------------------|-----------------------------------------------|
-| Armenia  | -8.99               | <span style="color:red">19.28</span> | -1.17 | <span style="color:red">77.03</span> |
-| Mexico   | -3.59               | -11.42           | <span style="color:red">4.78</span>  | -111.19 |
-| Belarus  | <span style="color:red">0.01</span> | <span style="color:red">13.28</span> | -3.10 | <span style="color:red">179.15</span> |
-| Russia   | <span style="color:red">12.91</span> | <span style="color:red">25.48</span> | -2.10 | <span style="color:red">167.32</span> |
-| Albania  | -3.39               | <span style="color:red">18.38</span> | <span style="color:red">1.80</span> | <span style="color:red">40.22</span> |
+| Armenia  | -8.99               | **19.28**         | -1.17                    | **77.03**                                      |
+| Mexico   | -3.59               | -11.42           | **4.78**                 | -111.19                                        |
+| Belarus  | **0.01**            | **13.28**        | -3.10                    | **179.15**                                     |
+| Russia   | **12.91**           | **25.48**        | -2.10                    | **167.32**                                     |
+| Albania  | -3.39               | **18.38**         | **1.80**                 | **40.22**                                      |
+```
+
+```markdown
+| location   | Excess Mortality (per million) | Female Smokers (%) | Male Smokers (%) | Diabetes Prevalence (%) | Cardiovascular Death Rate |
+|------------|--------------------------------|--------------------|------------------|-------------------------|---------------------------|
+| Seychelles | -1678.29                   | 7.1                | 35.7             | 10.55                   | 242.648                   |
+| Barbados   | -832.09                    | 1.9                | 14.5             | 13.57                   | 170.050                   |
+| Uruguay    | -682.38                    | 14.0               | 19.9             | 6.93                    | 160.708                   |
+| Mongolia   | -605.84                    | 5.5                | 46.5             | 4.82                    | 460.043                   |
+| Malaysia   | -465.23                   | 1.0                | 42.4             | 16.74                   | 260.942                   |
+```
+
+```markdown
+| location   | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
+|------------|---------------------|-------------------|-------------------------|--------------------------------------------------|
+| Seychelles | -3.39           | **2.88**               | **2.27**                         | -21.33                                                  |
+| Barbados    | -8.59               | -18.32            | **5.29**                         | -93.93                                                  |
+| Uruguay       | **3.51**                  | -12.92            | -1.35                        | -103.27                                                |
+| Mongolia    | -4.99            | **13.68**               | -3.46                       | **196.07**                                                  |
+| Malaysia    | -9.49            | **9.58**                | **8.46**                         | -3.03                                                    |
 ```
