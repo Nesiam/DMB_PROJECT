@@ -532,10 +532,21 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 ```
 
 ```markdown
-location	excess_mortality_cumulative_per_million	female_smokers	male_smokers	diabetes_prevalence	cardiovasc_death_rate
-0	Armenia	3613.725554	1.5	52.1	7.11	341.010
-1	Mexico	3437.694368	6.9	21.4	13.06	152.783
-2	Belarus	3287.984465	10.5	46.1	5.18	443.129
-3	Russia	3151.540865	23.4	58.3	6.18	431.297
-4	Albania	2854.503445	7.1	51.2	10.08	304.195
+| location | excess_mortality_cumulative_per_million | female_smokers | male_smokers | diabetes_prevalence | cardiovasc_death_rate |
+|----------|----------------------------------------|----------------|--------------|---------------------|------------------------|
+| Armenia  | 3613.725554                            | 1.5            | 52.1         | 7.11                | 341.010                |
+| Mexico   | 3437.694368                            | 6.9            | 21.4         | 13.06               | 152.783                |
+| Belarus  | 3287.984465                            | 10.5           | 46.1         | 5.18                | 443.129                |
+| Russia   | 3151.540865                            | 23.4           | 58.3         | 6.18                | 431.297                |
+| Albania  | 2854.503445                            | 7.1            | 51.2         | 10.08               | 304.195                |
+```
+
+```markdown
+| location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
+|----------|---------------------|------------------|--------------------------|-----------------------------------------------|
+| Armenia  | -8.99               | r(19.28)         | -1.17                    | r(77.03)                                      |
+| Mexico   | -3.59               | -11.42           | r(4.78)                  | -111.19                                       |
+| Belarus  | r(0.01)             | r(13.28)         | -3.10                    | r(179.15)                                     |
+| Russia   | r(12.91)            | r(25.48)         | -2.10                    | r(167.32)                                     |
+| Albania  | -3.39               | r(18.38)         | r(1.80)                  | r(40.22)                                      |
 ```
