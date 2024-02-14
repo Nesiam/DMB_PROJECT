@@ -20,11 +20,15 @@ Durant cette analyse nous allons étudier le nombre de cas recensé, de nouveau 
 
 Commençons par visualiser le dataset :
 
-| iso_code | continent | location    | date       | total_cases | new_cases | new_cases_smoothed | total_deaths | new_deaths | new_deaths_smoothed | total_cases_per_million | new_cases_per_million | new_cases_smoothed_per_million | total_deaths_per_million | new_deaths_per_million | new_deaths_smoothed_per_million | reproduction_rate | icu_patients | icu_patients_per_million | hosp_patients | hosp_patients_per_million | weekly_icu_admissions | weekly_icu_admissions_per_million | weekly_hosp_admissions | weekly_hosp_admissions_per_million | total_tests | new_tests | total_tests_per_thousand | new_tests_per_thousand | new_tests_smoothed | new_tests_smoothed_per_thousand | positive_rate | tests_per_case | tests_units | total_vaccinations | people_vaccinated | people_fully_vaccinated | total_boosters | new_vaccinations | new_vaccinations_smoothed | total_vaccinations_per_hundred | people_vaccinated_per_hundred | people_fully_vaccinated_per_hundred | total_boosters_per_hundred | new_vaccinations_smoothed_per_million | new_people_vaccinated_smoothed | new_people_vaccinated_smoothed_per_hundred | stringency_index | population | population_density | median_age | aged_65_older | aged_70_older | gdp_per_capita | extreme_poverty | cardiovasc_death_rate | diabetes_prevalence | female_smokers | male_smokers | handwashing_facilities | hospital_beds_per_thousand | life_expectancy | human_development_index | excess_mortality_cumulative_absolute | excess_mortality_cumulative | excess_mortality | excess_mortality_cumulative_per_million |
-|----------|-----------|-------------|------------|-------------|-----------|-------------------|--------------|------------|---------------------|--------------------------|------------------------|--------------------------------|---------------------------|-------------------------|----------------------------------|--------------------|--------------|--------------------------|---------------|----------------------------|-----------------------|----------------------------------|------------------------|------------------------------------|-------------|-----------|--------------------------|----------------------|------------------|---------------------------------|----------------|----------------|-------------|-------------------|------------------|------------------------|-----------------|-----------------|--------------------------|-------------------------------|------------------------------|------------------------------------|---------------------------|------------------------------------------|-----------------|------------|--------------------|------------|---------------|---------------|----------------|-----------------|-----------------------|---------------------|----------------|--------------|-----------------------|---------------------------|----------------|-------------------------|--------------------------------------|------------------------------|----------------|--------------------------------------|
-| AFG      | Asia      | Afghanistan | 2020-02-24 | 5.0         | 5.0       | NULL              | NULL         | NULL       | NULL                | 0.126                    | 0.126                  | NULL                           | NULL                      | NULL                    | NULL                            | NULL               | NULL         | NULL                     | NULL          | NULL                       | NULL                  | NULL                              | NULL                     | NULL                               | NULL        | NULL      | NULL                     | NULL                 | NULL             | NULL                            | NULL           | NULL           | NULL        | NULL              | NULL             | NULL                     | NULL            | NULL            | NULL                   | NULL                          | NULL                         | NULL                              | NULL                       | NULL                                     | NULL                             | NULL                                       | 8.33              | 3.9835428E7 | 54.422             | 18.6       | 2.581         | 1.337         | 1803.987       | NULL            | 597.029               | 9.59                | NULL           | NULL         | 37.746                | 0.5                        | 64.83          | 0.511                   | NULL                                 | NULL                         | NULL           | NULL                                |
-| AFG      | Asia      | Afghanistan | 2020-02-25 | 5.0         | 0.0       | NULL              | NULL         | NULL       | NULL                | 0.126                    | 0.0                    | NULL                           | NULL                      | NULL                    | NULL                            | NULL               | NULL         | NULL                     | NULL          | NULL                       | NULL                  | NULL                              | NULL                     | NULL                               | NULL        | NULL      | NULL                     | NULL                 | NULL             | NULL                            | NULL           | NULL           | NULL        | NULL              | NULL             | NULL                     | NULL            | NULL            | NULL                   | NULL                          | NULL                         | NULL                              | NULL                       | NULL                                     | NULL                             | NULL                                       | 8.33              | 3.9835428E7 | 54.422             | 18.6       | 2.581         | 1.337         | 1803.987       | NULL            | 597.029               | 9.59                | NULL           | NULL         | 37.746                | 0.5                        | 64.83          | 0.511                   | NULL                                 | NULL                         | NULL           | NULL                                |
-| AFG      | Asia      | Afghanistan | 2020-02-26 | 5.0         | 0.0       | NULL              | NULL         | NULL       | NULL                | 0.126                    | 0.0                    | NULL                           | NULL                      | NULL                    | NULL                            | NULL               | NULL         | NULL                     | NULL          | NULL                       | NULL                  | NULL                              | NULL                     | NULL                               | NULL        | NULL      | NULL                     | NULL                 | NULL             | NULL                            | NULL           | NULL           | NULL        | NULL              | NULL             | NULL                     |
+```markdown
++--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
+|iso_code|continent|   location|      date|total_cases|new_cases|new_cases_smoothed|total_deaths|new_deaths|new_deaths_smoothed|total_cases_per_million|new_cases_per_million|new_cases_smoothed_per_million|total_deaths_per_million|new_deaths_per_million|new_deaths_smoothed_per_million|reproduction_rate|icu_patients|icu_patients_per_million|hosp_patients|hosp_patients_per_million|weekly_icu_admissions|weekly_icu_admissions_per_million|weekly_hosp_admissions|weekly_hosp_admissions_per_million|total_tests|new_tests|total_tests_per_thousand|new_tests_per_thousand|new_tests_smoothed|new_tests_smoothed_per_thousand|positive_rate|tests_per_case|tests_units|total_vaccinations|people_vaccinated|people_fully_vaccinated|total_boosters|new_vaccinations|new_vaccinations_smoothed|total_vaccinations_per_hundred|people_vaccinated_per_hundred|people_fully_vaccinated_per_hundred|total_boosters_per_hundred|new_vaccinations_smoothed_per_million|new_people_vaccinated_smoothed|new_people_vaccinated_smoothed_per_hundred|stringency_index| population|population_density|median_age|aged_65_older|aged_70_older|gdp_per_capita|extreme_poverty|cardiovasc_death_rate|diabetes_prevalence|female_smokers|male_smokers|handwashing_facilities|hospital_beds_per_thousand|life_expectancy|human_development_index|excess_mortality_cumulative_absolute|excess_mortality_cumulative|excess_mortality|excess_mortality_cumulative_per_million|
++--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
+|     AFG|     Asia|Afghanistan|2020-02-24|        5.0|      5.0|              NULL|        NULL|      NULL|               NULL|                  0.126|                0.126|                          NULL|                    NULL|                  NULL|                           NULL|             NULL|        NULL|                    NULL|         NULL|                     NULL|                 NULL|                             NULL|                  NULL|                              NULL|       NULL|     NULL|                    NULL|                  NULL|              NULL|                           NULL|         NULL|          NULL|       NULL|              NULL|             NULL|                   NULL|          NULL|            NULL|                     NULL|                          NULL|                         NULL|                               NULL|                      NULL|                                 NULL|                          NULL|                                      NULL|            8.33|3.9835428E7|            54.422|      18.6|        2.581|        1.337|      1803.987|           NULL|              597.029|               9.59|          NULL|        NULL|                37.746|                       0.5|          64.83|                  0.511|                                NULL|                       NULL|            NULL|                                   NULL|
+|     AFG|     Asia|Afghanistan|2020-02-25|        5.0|      0.0|              NULL|        NULL|      NULL|               NULL|                  0.126|                  0.0|                          NULL|                    NULL|                  NULL|                           NULL|             NULL|        NULL|                    NULL|         NULL|                     NULL|                 NULL|                             NULL|                  NULL|                              NULL|       NULL|     NULL|                    NULL|                  NULL|              NULL|                           NULL|         NULL|          NULL|       NULL|              NULL|             NULL|                   NULL|          NULL|            NULL|                     NULL|                          NULL|                         NULL|                               NULL|                      NULL|                                 NULL|                          NULL|                                      NULL|            8.33|3.9835428E7|            54.422|      18.6|        2.581|        1.337|      1803.987|           NULL|              597.029|               9.59|          NULL|        NULL|                37.746|                       0.5|          64.83|                  0.511|                                NULL|                       NULL|            NULL|                                   NULL|
+|     AFG|     Asia|Afghanistan|2020-02-26|        5.0|      0.0|              NULL|        NULL|      NULL|               NULL|                  0.126|                  0.0|                          NULL|                    NULL|                  NULL|                           NULL|             NULL|        NULL|                    NULL|         NULL|                     NULL|                 NULL|                             NULL|                  NULL|                              NULL|       NULL|     NULL|                    NULL|                  NULL|              NULL|                           NULL|         NULL|          NULL|       NULL|              NULL|             NULL|                   NULL|          NULL|            NULL|                     NULL|                          NULL|                         NULL|                               NULL|                      NULL|                                 NULL|                          NULL|                                      NULL|            8.33|3.9835428E7|            54.422|      18.6|        2.581|        1.337|      1803.987|           NULL|              597.029|               9.59|          NULL|        NULL|                37.746|                       0.5|          64.83|                  0.511|                                NULL|                       NULL|            NULL|                                   NULL|
++--------+---------+-----------+----------+-----------+---------+------------------+------------+----------+-------------------+-----------------------+---------------------+------------------------------+------------------------+----------------------+-------------------------------+-----------------+------------+------------------------+-------------+-------------------------+---------------------+---------------------------------+----------------------+----------------------------------+-----------+---------+------------------------+----------------------+------------------+-------------------------------+-------------+--------------+-----------+------------------+-----------------+-----------------------+--------------+----------------+-------------------------+------------------------------+-----------------------------+-----------------------------------+--------------------------+-------------------------------------+------------------------------+------------------------------------------+----------------+-----------+------------------+----------+-------------+-------------+--------------+---------------+---------------------+-------------------+--------------+------------+----------------------+--------------------------+---------------+-----------------------+------------------------------------+---------------------------+----------------+---------------------------------------+
+```
 
 
 Ce dataset est très complet et contient des informations allant des statistiques du Covid (cas,test,admissions hebdommadaire..) aux informations démographiques et médicales du pays. Voici une liste exhaustive :
@@ -106,7 +110,7 @@ root
 
 ## 💻 3. Nettoyage du dataset
 
-### 💻 3.1 Restriction à la période Janvier-Février 2021
+### 3.1 Restriction à la période Janvier-Février 2021
 
 Comme évoqué précédement, nous allons commencer par restreindre le dataset à la période de janvier à février 2021.
 
@@ -114,7 +118,7 @@ Comme évoqué précédement, nous allons commencer par restreindre le dataset �
 The number of samples is now 13515 against the previous 176224.
 ```
 
-### 💻 3.2 Suppression des valeurs NULL 
+### 3.2 Suppression des valeurs NULL 
 
 Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
@@ -126,7 +130,7 @@ Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
 Pour adresser cette situation nous avons remplacé les valeurs de noms de continent par "Unknown", les types de test par "no info" et les valeurs numériques par 0.
 
-### 💻 3.3 Suppression des doublons 
+### 3.3 Suppression des doublons 
 
 D'autre part, nous avons supprimé les possibles doublons et avons retiré certains "pays". Les pays concerné sont par exemple "Le Monde", "L'Union Européene","L'Asie" ou encore les "pays à haut revenu". Ces éléments pourrait permettre de faire des analyses intéressantes mais nous allons nous contenter des pays "classiquesé.
 
@@ -265,11 +269,13 @@ Czechia             : New entry at position 15
 Denmark             : New entry at position 10
 ```
 
-A l'inverse des TOP des nombres de cas positifs au COVID, on se rend compte avec les test que les évolutions sont bien plus brusques ce qui pourrait traduire de la prise de conscience des populations de se tester où le résultat des obligations gouvernementales en terme test.
+A l'inverse des TOP des nombres de cas positifs au COVID, on se rend compte avec les tests que les évolutions sont bien plus brusques, ce qui pourrait traduire la prise de conscience des populations sur l'importance des tests ou le résultat des obligations gouvernementales mise ne place en terme de test.
 
 ## 💻 6. Etude de l'évolution du taux de mortalité dans les pays (Intermédiaire)
 
-Nous allons commencer par étudier la mortalité du COVID, c'est à dire le rapport du nombre de morts sur le nombre de cas.
+### 6.1 Etude de la mortalité au nombre de cas
+
+Nous allons commencer par étudier la mortalité du COVID, c'est à dire le **rapport du nombre de morts sur le nombre de cas**.
 
 ```markdown
 During 2021-01-01, the top 20 countries with the highest number of mortality_per_case were:
@@ -335,7 +341,9 @@ Greece                : New entry at position 19
 Zimbabwe              : New entry at position 20
 ```
 
-Le taux de mortalité au Yemen semble excessif face au reste du classement (29% face à 9% pour le 2nd). Après vérification sur la page wikipédia correspondante, il semblerait que le nombre de mort au Yemen était bien de 650 morts pour 2200 cas en février 2021.
+Le taux de mortalité au Yemen semble excessif face au reste du classement (29% face à 9% pour le 2nd). Après vérification sur la page wikipédia correspondante, il semblerait que le nombre de mort au Yemen était bien de 29% avec 650 morts pour 2200 cas en février 2021.
+
+### 6.2 Etude de la mortalité au nombre d'habitants
 
 Ensuite nous allons étudier le taux de mortalité du pays, c'est à dire le rapport de nombre de morts sur le nombre d'habitants.
 
@@ -407,11 +415,15 @@ Portugal              : New entry at position 18
 Gibraltar             : New entry at position 2
 ```
 
+### 6.3 Comparaison
+
 Pour se donner une idée de ce que ces taux de mortalité représente nous avons afficher ses taux dans un histogramme, ainsi que le nombre de morts.
 
 ![Example Image](img/mortality_case.png)
 
 ![Example Image](img/total_deaths.png)
+
+On se rend compte, au vu du "faible" taux de mortalité couplé avec l'important nombre de morts, que certains pays (Fiji,Sudan,Montserrat et Chad) était gravement touché par le COVID.
 
 ## 💻 7. Etude de l'évolution du nombre de patients (Intermédiaire)
 
@@ -488,7 +500,13 @@ Malaysia      : New entry at position 13
 
 ![Example Image](img/ICU.png)
 
+Sans grande surprise le nombre d'hospitalisations concorde avec le nombre d'admissions en soins intensifs. Cependant on ne pas être aussi affiramtif avec le nombre de mort. On retrouve la même tendance aux crêtes mais difficile de dire avec ces dents de scie. Ces dents de scie serait d'ailleurs un phénomène intéressant à justifier.
+
 ## 💻8. Etude de la Corrélation géographique de l'excès de mortalité (Difficile)
+
+Dans cette partie, nous étudierons la corrélation géographique qui peuvent être liées à la caractéristique de surmortalité.
+
+La surmortalité est une caractéristique pour laquelle les rapports sont hebdomadaires et non quotidiens. Elle est égale au nombre total de décès pour une semaine donnée moins le nombre moyen de décès, sur la base des rapports des années précédentes. Bien qu'il ne s'agisse pas d'une caractéristique directement liée à Covid, on s'attend à ce que, lors d'une pandémie mondiale, la surmortalité soit principalement attribuée à cette pandémie.
 
 ![Example Image](img/correlation.png)
 
@@ -511,51 +529,97 @@ Switzerland and Poland show a correlation of 96.98.
 Slovenia and Poland show a correlation of 95.57.
 ```
 
+Le Covid étant une pandémie, il est logique que l'on retrouve une forte corrélation dans les pays limitrophes. Ici, il semblerait qu'il y ait eu deux foyers en Europe. Un premier en Allemagne et un second en Espagne.
+
 ## 💻9. Etude de la Corrélation entre différente features (Difficile)
 
-```markdown
-As far as the correlation between new tests and excess mortality is concerned:
+### 9.1 Corrélation entre le nombre de vaccinations et la surmortalité
 
+Dans cette partie nous avons étudié la corrélation entre différentes features. Nous avons décidé d'étudier la correlation entre le nombre de vaccinations et la surmortalité.
+
+```markdown
 The ten countries with the highest correlation are:
-Spain, with correlation equal to 0.976.
-South Africa, with correlation equal to 0.968.
-Peru, with correlation equal to 0.962.
-Portugal, with correlation equal to 0.960.
-Mexico, with correlation equal to 0.921.
-Colombia, with correlation equal to 0.916.
-United States, with correlation equal to 0.794.
-Lithuania, with correlation equal to 0.762.
-South Korea, with correlation equal to 0.723.
-Chile, with correlation equal to 0.647.
+Peru, with correlation equal to 0.689.
+Malta, with correlation equal to 0.633.
+Montenegro, with correlation equal to 0.465.
+Finland, with correlation equal to 0.425.
+Chile, with correlation equal to 0.372.
+Israel, with correlation equal to 0.367.
+Bulgaria, with correlation equal to 0.310.
+Greece, with correlation equal to 0.267.
+Australia, with correlation equal to 0.216.
+Iceland, with correlation equal to 0.195.
 
 The ten countries with the lowest correlation are:
-Slovakia, with correlation equal to -0.883.
-Denmark, with correlation equal to -0.828.
-Romania, with correlation equal to -0.762.
-New Zealand, with correlation equal to -0.729.
-Switzerland, with correlation equal to -0.715.
-Italy, with correlation equal to -0.698.
-Sweden, with correlation equal to -0.643.
-Luxembourg, with correlation equal to -0.543.
-Guatemala, with correlation equal to -0.483.
-Austria, with correlation equal to -0.396.
+Germany, with correlation equal to -0.975.
+Poland, with correlation equal to -0.951.
+Denmark, with correlation equal to -0.947.
+Netherlands, with correlation equal to -0.929.
+United States, with correlation equal to -0.926.
+Switzerland, with correlation equal to -0.916.
+Sweden, with correlation equal to -0.893.
+Lithuania, with correlation equal to -0.875.
+Austria, with correlation equal to -0.862.
+Slovakia, with correlation equal to -0.856.
 ```
 
+La corrélation est assez faible entre le nombre de vaccinations et la surmortalité. Les campagnes de vaccinations n'étaient peut être pas encore complétement opérationnelle en 2021.
+
+### 9.2 Corrélation entre le nombre de cas et le nombre de vaccinations
+
+Vérifions si la conclusion est la même avec le nombre de vaccinations :
+
+```markdown
+The ten countries with the highest correlation are:
+Kuwait, with correlation equal to 0.910.
+Iran, with correlation equal to 0.841.
+Cambodia, with correlation equal to 0.836.
+Greece, with correlation equal to 0.759.
+Finland, with correlation equal to 0.714.
+United Arab Emirates, with correlation equal to 0.665.
+Hungary, with correlation equal to 0.660.
+Estonia, with correlation equal to 0.649.
+Qatar, with correlation equal to 0.627.
+Maldives, with correlation equal to 0.607.
+
+The ten countries with the lowest correlation are:
+United Kingdom, with correlation equal to -0.894.
+United States, with correlation equal to -0.866.
+Nepal, with correlation equal to -0.772.
+French Polynesia, with correlation equal to -0.734.
+Switzerland, with correlation equal to -0.731.
+Russia, with correlation equal to -0.702.
+Netherlands, with correlation equal to -0.698.
+Morocco, with correlation equal to -0.663.
+Gibraltar, with correlation equal to -0.653
+```
+
+La corrélation est bien plus importante. Il semblerait que certains pays ont étaient des bons élèves face au nombre de cas déclarés. 
+
 ## 💻10. Etude de la relation entre Covid et conditions générales de santé (Difficile)
+
+Dans cette partie nous étudierons la relation entre les conditions générales de santé et COVID.
+
+A titre informatif :
 
 ```markdown
 Based on data up to 2021-01-01, the mean percentage of female smokers is 10.49%, while the corresponding number for male smokers is 32.82%.
 In addition, the mean percentage of people suffering from diabetes (aged 20-79) is 8.27%, while the mean number of deaths per 100.000 people due to cardiovascular conditions is 263.33.
 ```
 
-| location | excess_mortality_cumulative_per_million | female_smokers | male_smokers | diabetes_prevalence | cardiovasc_death_rate |
-|----------|----------------------------------------|----------------|--------------|---------------------|------------------------|
-| Armenia  | 3613.725554                            | 1.5            | 52.1         | 7.11                | 341.010                |
-| Mexico   | 3437.694368                            | 6.9            | 21.4         | 13.06               | 152.783                |
-| Belarus  | 3287.984465                            | 10.5           | 46.1         | 5.18                | 443.129                |
-| Russia   | 3151.540865                            | 23.4           | 58.3         | 6.18                | 431.297                |
-| Albania  | 2854.503445                            | 7.1            | 51.2         | 10.08               | 304.195                |
+### 10.1 Cas des pays qui présentent le plus de surmortalité
 
+On peut voir dans les pays les plus affectés les statistiques suivantes :
+
+| location | Excess Mortality (per million) | female_smokers | male_smokers | diabetes_prevalence | cardiovasc_death_rate |
+|----------|--------------------------------|----------------|--------------|---------------------|------------------------|
+| Armenia  | 3613.725554                  | 1.5            | 52.1         | 7.11                | 341.010                |
+| Mexico   | 3437.694368                  | 6.9            | 21.4         | 13.06               | 152.783                |
+| Belarus  | 3287.984465                  | 10.5           | 46.1         | 5.18                | 443.129                |
+| Russia   | 3151.540865                  | 23.4           | 58.3         | 6.18                | 431.297                |
+| Albania  | 2854.503445                  | 7.1            | 51.2         | 10.08               | 304.195                |
+
+Et on voit bien, même après retrait de la moyenne mondiale concerné, que le nombre de fumeurs masculin et le nombre de mort cardio-vasculaire sont trés élévé :
 
 | location | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |----------|---------------------|------------------|--------------------------|---------------------------------------------|
@@ -566,6 +630,8 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Albania  | -3.39               | ***18.38***        | ***1.80***                 | ***40.22***                                   |
 
 
+### 10.2 Cas des pays qui présentent le moins de surmortalité
+
 
 | location   | Excess Mortality (per million) | Female Smokers (%) | Male Smokers (%) | Diabetes Prevalence (%) | Cardiovascular Death Rate |
 |------------|--------------------------------|--------------------|------------------|-------------------------|---------------------------|
@@ -575,7 +641,7 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Mongolia   | -605.84                    | 5.5                | 46.5             | 4.82                    | 460.043                   |
 | Malaysia   | -465.23                   | 1.0                | 42.4             | 16.74                   | 260.942                   |
 
-
+Vérifions si la situation reste identique : 
 
 | location   | Female Smokers (%) | Male Smokers (%) | Diabetic Population (%) | Cardiovascular-related Deaths per 100.000 (%) |
 |------------|---------------------|-------------------|-------------------------|--------------------------------------------------|
@@ -584,3 +650,7 @@ In addition, the mean percentage of people suffering from diabetes (aged 20-79) 
 | Uruguay       | ***3.51***                  | -12.92            | -1.35                        | -103.27                                                |
 | Mongolia    | -4.99            | ***13.68***               | -3.46                       | ***196.07***                                                  |
 | Malaysia    | -9.49            | ***9.58***                | ***8.46***                         | -3.03                                                    |
+
+Le nombre élevé de décès dus à des causes cardiovasculaires ne semble pas apparaître dans ce cas, à l'exception de la Mongolie. En ce qui concerne le pourcentage de fumeurs, il semble avoir diminué de manière significative pour les deux sexes. Contrairement à ce qui a été observé pour les 5 premiers pays, les pays ayant la plus faible surmortalité ont tendance à avoir une population diabétique plus importante.
+
+Sur la base de ces éléments, on peut conclure que la surmortalité due à Covid peut être liée à des pourcentages élevés de fumeurs dans la population générale, ainsi qu'à des maladies cardiovasculaires. Des conclusions similaires ne peuvent être tirées dans le cas du diabète, qui peut ne pas être corrélé avec les décès dus à Covid.
