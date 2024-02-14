@@ -13,8 +13,7 @@ This project is about preprocessing and explorating data analysis of SARS-Cov-2 
 ## Import Libarairies
 """
 
-#!pip install pyspark
-#!pip isntall seaborn
+!pip install pyspark
 import pyspark
 from pyspark.sql import SparkSession, SQLContext
 from pyspark.sql import functions as F
@@ -50,7 +49,7 @@ print(f"The number of samples is {full_df.count()}, with each sample correspondi
 """## Visualizing the data"""
 
 # Display of samples
-full_df.show(5)
+full_df.show(3)
 
 # Printing of the dataset features
 full_df.printSchema()
@@ -124,7 +123,7 @@ else:
 Some of the inputs are interesting such as World, High income, Lower income or European Union... But we will remove them to stick to the "classical" countries.
 """
 
-specific_countries = ["World", "High income", "Upper middle income","Lower middle income","Asia","Africa","Oceania","Europe","European Union","North America","South America"]
+specific_countries = ["World", "High income", "Upper middle income","Lower middle income","Asia","Africa","Oceania","Europe","Ecuador","European Union","North America","South America"]
 
 df = df.filter(~col("location").isin(specific_countries))
 
@@ -403,17 +402,19 @@ display_diff_january_february("Mortality Case Rates",merged_mortality_case_janua
 
 # Filter DataFrame for January date and select only countries in all_countries
 january_deaths = df.filter((F.col('date') == "2021-01-01") & (F.col('location').isin(all_countries))) \
-                   .select(["location", "total_deaths"]) \
-                   .take(len(all_countries))
+                       .groupBy("location") \
+                       .agg(F.max("total_deaths").alias("max_deaths")) \
+                       .collect()
 
 # Filter DataFrame for February date and select only countries in all_countries
-february_deaths = df.filter((F.col('date') == "2021-02-01") & (F.col('location').isin(all_countries))) \
-                    .select(["location", "total_deaths"]) \
-                    .take(len(all_countries))
+february_deaths = df.filter((F.col('date') == "2021-01-01") & (F.col('location').isin(all_countries))) \
+                       .groupBy("location") \
+                       .agg(F.max("total_deaths").alias("max_deaths")) \
+                       .collect()
 
-# Extracting country names and total deaths for January and February
-january_countries, january_deaths_values = zip(*january_deaths)
-february_countries, february_deaths_values = zip(*february_deaths)
+# Extracting country names and maximum deaths for January 1st, 2021
+january_countries, january_deaths_values = zip(*[(row["location"], row["max_deaths"]) for row in january_deaths])
+january_countries, february_deaths_values = zip(*[(row["location"], row["max_deaths"]) for row in february_deaths])
 
 display_diff_january_february("Total Deaths",january_deaths_values,february_deaths_values,all_countries)
 
@@ -500,7 +501,7 @@ country_dict = {}
 for country in countries_list:
     filtered = df.filter(F.col('location') == country).filter(F.col('excess_mortality') != 0.0)
     if filtered.count() > 5:
-        value = filtered.stat.corr("excess_mortality", "new_tests_smoothed")
+        value = filtered.stat.corr("excess_mortality", "new_vaccinations_smoothed")
     else:
         value = np.nan
     if not np.isnan(value):
@@ -509,7 +510,29 @@ for country in countries_list:
 #country_dict
 
 country_dict = dict(sorted(country_dict.items(), reverse=True, key=lambda item: item[1]))
-print("As far as the correlation between new tests and excess mortality is concerned:\n")
+print("As far as the correlation between new vaccinations and excess mortality is concerned:\n")
+print("The ten countries with the highest correlation are:")
+for i, ct in enumerate(country_dict):
+    if i == 10: break
+    print(f"{ct}, with correlation equal to {country_dict[ct]:.3f}.")
+country_dict = dict(sorted(country_dict.items(), reverse=False, key=lambda item: item[1]))
+print("\nThe ten countries with the lowest correlation are:")
+for i, ct in enumerate(country_dict):
+    if i == 10: break
+    print(f"{ct}, with correlation equal to {country_dict[ct]:.3f}.")
+
+country_dict = {}
+for country in countries_list:
+    filtered = df.filter(F.col('location') == country).filter(F.col('new_cases') != 0.0)
+    if filtered.count() > 5:
+        value = filtered.stat.corr("new_cases", "new_vaccinations_smoothed")
+    else:
+        value = np.nan
+    if not np.isnan(value):
+        country_dict[country] = value
+
+country_dict = dict(sorted(country_dict.items(), reverse=True, key=lambda item: item[1]))
+print("As far as the correlation between new vaccinations and new cases is concerned:\n")
 print("The ten countries with the highest correlation are:")
 for i, ct in enumerate(country_dict):
     if i == 10: break
@@ -530,7 +553,7 @@ mean_diabetes_prevalence = filtered_df.filter(F.col('diabetes_prevalence') != 0.
 mean_cardiovasc_death_rate = filtered_df.filter(F.col('cardiovasc_death_rate') != 0.0).select(F.mean(F.col('cardiovasc_death_rate'))).collect()[0][0]
 
 print(f'Based on data up to 2021-01-01, the mean percentage of female smokers is {mean_female_smokers:.2f}%, while the corresponding number for male smokers is {mean_male_smokers:.2f}%.')
-print(f'In addition, the mean percentage of people suffering from diabetes (aged 20-79) is {mean_diabetes_prevalence:.2f}%, while the mean number of deaths per 100.000 people due to cardiovascular conditions is {mean_card:.2f}.')
+print(f'In addition, the mean percentage of people suffering from diabetes (aged 20-79) is {mean_diabetes_prevalence:.2f}%, while the mean number of deaths per 100.000 people due to cardiovascular conditions is {mean_cardiovasc_death_rate:.2f}.')
 
 filtered_df = filtered_df.filter(F.col('diabetes_prevalence') != 0.0).filter(F.col('cardiovasc_death_rate') != 0.0).filter(F.col('female_smokers') != 0.0).filter(F.col('male_smokers') != 0.0)
 filtered_df.orderBy("excess_mortality_cumulative_per_million", ascending=False).select(["location", "excess_mortality_cumulative_per_million", "female_smokers", "male_smokers", "diabetes_prevalence", "cardiovasc_death_rate"]).toPandas().head(5)
