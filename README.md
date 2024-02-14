@@ -49,7 +49,7 @@ root
  |-- new_deaths_per_million: double (nullable = true)
  |-- new_deaths_smoothed_per_million: double (nullable = true)
  |-- reproduction_rate: double (nullable = true)
-  |---------------- Hospitalisation/Vaccination ----------------------
+ |---------------- Hospitalisation/Vaccination ----------------------
  |-- icu_patients: double (nullable = true)
  |-- icu_patients_per_million: double (nullable = true)
  |-- hosp_patients: double (nullable = true)
@@ -89,7 +89,7 @@ root
  |-- aged_70_older: double (nullable = true)
  |-- gdp_per_capita: double (nullable = true)
  |-- extreme_poverty: double (nullable = true)
-|------------------ Informations médicales --------------------------------
+ |------------------ Informations médicales --------------------------------
  |-- cardiovasc_death_rate: double (nullable = true)
  |-- diabetes_prevalence: double (nullable = true)
  |-- female_smokers: double (nullable = true)
@@ -106,11 +106,15 @@ root
 
 ## 💻 3. Nettoyage du dataset
 
+### 💻 3.1 Restriction à la période Janvier-Février 2021
+
 Comme évoqué précédement, nous allons commencer par restreindre le dataset à la période de janvier à février 2021.
 
 ```markdown
 The number of samples is now 13515 against the previous 176224.
 ```
+
+### 💻 3.2 Suppression des valeurs NULL 
 
 Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 
@@ -119,10 +123,10 @@ Ensuite nous avons vérifier la présence d'éventuelles de valeurs NULL :
 |------------------------|-----------------------------------|------------------------------------|---------------------------|------------------|-----------------------------------------|----------------|---------------------------|------------------------|--------------------------------------|-----|--------------------------------|-----------------------|-----------------------|-------------------|-------------|-----------------------|-----------|----------|----------|------|
 | 13029                  | 13029                             | 13010                              | 13010                     | 13010            | 13010                                   | 12765          | 12765                     | 12581                  | 12581                                | ... | 412                            | 382                   | 378                   | 353               | 323         | 319         | 105       | 0        | 0        | 0    |
 
-1 rows × 67 columns
-
 
 Pour adresser cette situation nous avons remplacé les valeurs de noms de continent par "Unknown", les types de test par "no info" et les valeurs numériques par 0.
+
+### 💻 3.3 Suppression des doublons 
 
 D'autre part, nous avons supprimé les possibles doublons et avons retiré certains "pays". Les pays concerné sont par exemple "Le Monde", "L'Union Européene","L'Asie" ou encore les "pays à haut revenu". Ces éléments pourrait permettre de faire des analyses intéressantes mais nous allons nous contenter des pays "classiquesé.
 
